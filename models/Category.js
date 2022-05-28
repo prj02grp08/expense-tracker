@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Categories extends Model { }
+class Category extends Model { }
 
 // create fields/columns for Post model
-Categories.init(
+Category.init(
     {
         id: {
             type: DataTypes.INTEGER,
@@ -15,14 +15,22 @@ Categories.init(
         name: {
             type: DataTypes.STRING,
             allowNull: false
-        }
+        },
+        user_id: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            references: {
+                model: 'user',
+                key: 'id'
+            }
+        },
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'categories'
+        modelName: 'category'
     }
 );
 
-module.exports = Categories;
+module.exports = Category;
