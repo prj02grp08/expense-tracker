@@ -15,15 +15,28 @@ router.get("/", (req, res) => {
 
 // getting category by id
 router.get("/:id", (req, res) => {
-  Category.findOne({ id: req.params.id }).catch((err) => {
-    console.log(err);
-    res.status(404).json(err);
-  });
+  Category.findOne({
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((dbUserData) => {
+      if (!dbUserData) {
+        res.status(404).json({ message: "No category found with this id" });
+        return;
+      }
+      res.json(dbUserData);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(500).json(err);
+    });
 });
 
 router.post("/", (req, res) => {
   Category.create({
     name: req.body.name,
+    user_id: req.body.user_id,
   })
     .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {
