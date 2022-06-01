@@ -9,5 +9,6 @@ const Expense = require("./Expense");
 // });
 
 User.hasMany(Category);
+Expense.belongsTo(User)
 
 module.exports = { Category, User, Expense };
