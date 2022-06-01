@@ -12,6 +12,14 @@ router.get("/", (req, res) => {
     });
 });
 
+// getting user by id
+router.get("/:id", (req, res) => {
+  User.findOne({ id: req.params.id }).catch((err) => {
+    console.log(err);
+    res.status(404).json(err);
+  });
+});
+
 router.post("/", (req, res) => {
   User.create({
     first_name: req.body.first_name,
