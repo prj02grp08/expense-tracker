@@ -6,16 +6,18 @@ async function addCategory(event) {
 
     const response = await fetch('/api/category', {
         method: 'POST',
-        body: JSON.string({
-            title
+        body: JSON.stringify({
+            name: title
         }),
         headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
-        console.log("This is the response", response)
+        document.location.replace('/dashboard');
+    } else {
+        alert(response.statusText);
     }
 
 }
 
-document.querySelector('category-form').addEventListener('submit', addCategory);
+document.querySelector('.category-form').addEventListener('submit', addCategory);
