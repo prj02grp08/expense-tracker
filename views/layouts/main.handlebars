@@ -17,6 +17,9 @@
         {{> footer }}
     </div>
     <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
 </body>
 
 </html>

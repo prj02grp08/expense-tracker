@@ -1,7 +1,4 @@
 async function addExpenses() {
-    // event.preventDefault();
-    // console.log("this 2", categories);
-
     const expenseName = document.querySelector('#new-expense').value.trim();
     const expenseValue = document.querySelector('#new-expense-value').value.trim();
     const user_id = document.querySelector('#user_id').value;

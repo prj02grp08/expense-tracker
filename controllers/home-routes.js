@@ -4,6 +4,15 @@ const router = require('express').Router();
 
 router.get('/', (req, res) => {
     if (req.session.loggedIn) {
+        res.redirect('/dashboard');
+        return;
+    }
+    res.render('homepage');
+});
+
+
+router.get('/dashboard', (req, res) => {
+    if (req.session.loggedIn) {
         const user_id = req.session.user_id;
         Category.findAll({
             attributes: [
@@ -17,8 +26,11 @@ router.get('/', (req, res) => {
                 return;
             });
     } else {
-        res.render('homepage')
+        res.render('homepage');
     }
+
 });
+
+
 
 module.exports = router;

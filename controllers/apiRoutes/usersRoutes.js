@@ -34,6 +34,7 @@ router.get("/:id", (req, res) => {
 });
 
 router.post("/", (req, res) => {
+  console.log(req);
   User.create({
     first_name: req.body.first_name,
     last_name: req.body.last_name,
