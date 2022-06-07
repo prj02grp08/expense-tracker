@@ -12,4 +12,7 @@ router.get("/", (req, res) => {
     });
 });
 
+// /api/report route
+// diplay user_id, category, expense
+
 module.exports = router;
