@@ -21,6 +21,6 @@ async function addExpenses() {
         console.log(response)
     }
 }
-// window.onload = getCategory();
+
 document.querySelector('.expense-form').addEventListener('submit', addExpenses);
 

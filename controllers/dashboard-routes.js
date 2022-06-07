@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const withAuth = require('../utils/auth');
-const sequelize = require('../config/connection');
-const { User } = require('../models');
+// const sequelize = require('../config/connection');
+// const { User } = require('../models');
 
 router.get('/', withAuth, (req, res) => {
     if (req.session.loggedIn) {
@@ -9,7 +9,7 @@ router.get('/', withAuth, (req, res) => {
         return;
     }
 
-    // res.render('dashboard');
+    // res.render('homepage');
 });
 
 module.exports = router;
