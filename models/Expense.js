@@ -17,7 +17,7 @@ Expense.init(
             allowNull: false
         },
         value: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.FLOAT,
             allowNull: false
         },
         user_id: {

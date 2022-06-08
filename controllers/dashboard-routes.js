@@ -9,7 +9,7 @@ router.get('/', withAuth, (req, res) => {
         return;
     }
 
-    // res.render('homepage');
+    // res.render('dashboard');
 });
 
 module.exports = router;

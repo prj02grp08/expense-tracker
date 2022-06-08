@@ -2,9 +2,11 @@ async function selectCategoryById(event) {
     event.preventDefault();
 
     const categoryId = document.querySelector('.expense-category-form option:checked').value;
-    const userId = document.querySelector('#user_id').value;
+    const sessionUserId = document.querySelector('#user_id').value;
+    let getNewTransactionElement = document.querySelector('.select-new-transaction');
+    let expensesData = '';
     console.log(categoryId);
-    console.log(userId);
+    console.log(sessionUserId);
 
     fetch("/api/expenses")
         .then(function (response) {
@@ -12,14 +14,30 @@ async function selectCategoryById(event) {
             if (response.ok) {
                 response.json().then(function (data) {
                     console.log("This is a success",data);
-                    const expenseUserId = data[0].user_id;
-                    console.log(expenseUserId);
-                    // userId 
-                    
+                    for (var i = 0; i < data.length; i++) {
+                        let expenseUserId = data[i].user_id;
+                        let expenseCategoryId = data[i].category_id;
+                        console.log(data[i].name)
+                        console.log(data[i].user_id)
+                        if (expenseUserId == sessionUserId && expenseCategoryId == categoryId) {
+                            expensesData +=
+                            `
+                                <select class="select-new-transaction w-full h-auto p-2.5" name="category" multiple="multiple">
+                                    <option id="new-transaction-${data[i].name}"
+                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400">${data[i].name} &emsp; &emsp; &emsp; &emsp; $${data[i].value}</option>
+                                </select>
+                            `
+                            // console.log(expensesData)
+
+                        };
+
+                    }
+                    getNewTransactionElement.innerHTML = expensesData
 
 
-                    // pass response to DOM function
-                    // displayPlants(data);
+                 
+
+
                 });
             }
             else {
