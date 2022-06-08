@@ -13,7 +13,7 @@ async function selectCategoryById(event) {
             // request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    console.log("This is a success",data);
+                    console.log("This is a success", data);
                     for (var i = 0; i < data.length; i++) {
                         let expenseUserId = data[i].user_id;
                         let expenseCategoryId = data[i].category_id;
@@ -21,11 +21,10 @@ async function selectCategoryById(event) {
                         console.log(data[i].user_id)
                         if (expenseUserId == sessionUserId && expenseCategoryId == categoryId) {
                             expensesData +=
-                            `
-                                <select class="select-new-transaction w-full h-auto p-2.5" name="category" multiple="multiple">
-                                    <option id="new-transaction-${data[i].name}"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400">${data[i].name} &emsp; &emsp; &emsp; &emsp; $${data[i].value}</option>
-                                </select>
+                                `
+                            <p
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400">
+                                ${data[i].name}<span>$${data[i].value}</span></p>
                             `
                             // console.log(expensesData)
 
@@ -35,7 +34,7 @@ async function selectCategoryById(event) {
                     getNewTransactionElement.innerHTML = expensesData
 
 
-                 
+
 
 
                 });
@@ -45,7 +44,7 @@ async function selectCategoryById(event) {
                 document.location.replace("./dashboard");
             }
         });
-    }
+}
 
 
 document.querySelector('.expense-category-form').addEventListener('submit', selectCategoryById);
