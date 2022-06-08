@@ -1,12 +1,13 @@
 <div class="flex justify-around p-10">
     <div
         class="w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-6 lg:p-8">
-        <form class="view-transaction space-y-6" action="#">
+        <form class="expense-category-form space-y-6"/>
             <h5 class="text-xl font-medium text-gray-900">Expenses by Category</h5>
+            <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">Select a category</label>
             <select class=" w-full h-auto p-2.5" name="category" multiple="multiple">
                 {{#each categories as |category|}}
                 <option
-                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400 selected-option"
                     value="{{category.id}}">{{category.name}}</option>
                 {{/each}}
             </select>
@@ -23,18 +24,15 @@
                 <input type="hidden" name="text" id="user_id" value="{{ user_id }}">
             </div>
             <div>
-                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">Select a category</label>
+                <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">By Category</label>
                 <select class=" w-full h-auto p-2.5" name="category" multiple="multiple">
-                    {{#each expenses as |expense|}}
-                    <option
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400"
-                        value="{{expense.id}}">{{expense.name}}</option>
-                    {{/each}}
+                    <option id="new-transaction"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-gray-500 focus:border-gray-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400"></option>
                 </select>
             </div>
         </form>
     </div>
 </div>
-{{!-- <script src="/javascript/reports.js"></script> --}}
-<script src="/javascript/category.js"></script>
-<script src="/javascript/expense.js"></script>
+{{!-- <script src="/javascript/category.js"></script>
+<script src="/javascript/expense.js"></script> --}}
+<script src="/javascript/reports.js"></script>

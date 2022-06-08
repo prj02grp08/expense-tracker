@@ -1,4 +1,5 @@
 const { Category } = require('../models');
+const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
@@ -11,9 +12,10 @@ router.get('/', (req, res) => {
 });
 
 
-router.get('/dashboard', (req, res) => {
+router.get('/dashboard', withAuth, (req, res) => {
     if (req.session.loggedIn) {
         const user_id = req.session.user_id;
+        console.log("This is the user ID: " + user_id);
         Category.findAll({
             attributes: [
                 'id',
@@ -26,7 +28,7 @@ router.get('/dashboard', (req, res) => {
                 return;
             });
     } else {
-        res.render('homepage');
+        res.render('xxxxx');
     }
 
 });
