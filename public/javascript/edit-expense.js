@@ -17,7 +17,8 @@ function openModal(expenseId, category_id, expenseValue, expenseName) {
   document.getElementById("modal_user_id").value = userId
   document.getElementById("modal_expense_id").value = expenseId
   document.getElementById("modal_category_id").value = categoryId
- 
+
+  
   return expenseId;
 
 }
@@ -26,6 +27,7 @@ function cancelModal() {
   // Get the modal
   var modal = document.getElementById("update-expense");
   modal.style.display = "none";
+
 }
 
 async function editFormHandler(event, expenseId) {

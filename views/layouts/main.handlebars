@@ -16,25 +16,27 @@
 
         /* The Modal (background) */
         .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
+            width: 100px;
+            height: 100px;
+            margin:0 auto;
+            display:none;
+            position: absolute;
             left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
+            right:0;
+            top: 50%; 
+            border:1px solid;
+            -webkit-transform:translateY(-50%);
+            -moz-transform:translateY(-50%);
+            -ms-transform:translateY(-50%);
+            -o-transform:translateY(-50%);
+            transform:translateY(-50%);
         }
+
     </style>
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="">
         {{> header }}
         {{{ body }}}
         {{> footer }}
