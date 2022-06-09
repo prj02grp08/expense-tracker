@@ -3,9 +3,9 @@ const withAuth = require('../utils/auth');
 
 const router = require('express').Router();
 
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     if (req.session.loggedIn) {
-        res.redirect('/dashboard');
+        res.redirect('dashboard');
         return;
     }
     res.render('homepage');
