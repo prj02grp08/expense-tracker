@@ -13,7 +13,7 @@ async function selectCategoryById(event) {
             // request was successful
             if (response.ok) {
                 response.json().then(function (data) {
-                    // console.log("This is a success", data);
+                    console.log("This is a success", data);
                     for (var i = 0; i < data.length; i++) {
                         let expenseUserId = data[i].user_id;
                         let expenseCategoryId = data[i].category_id;
@@ -23,7 +23,7 @@ async function selectCategoryById(event) {
                             <p
                                 class="expense-title bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400">
                                 ${data[i].name}<span class="expense-value">$${data[i].value}</span></p>
-                            <button type="button" id="edit-btn" onclick="openModal(${data[i].category_id},${data[i].value},\'${data[i].name}\' )">
+                            <button type="button" id="edit-btn" onclick="openModal(${data[i].id}, ${data[i].category_id},${data[i].value},\'${data[i].name}\' )">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
