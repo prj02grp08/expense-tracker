@@ -5,7 +5,7 @@ function openDeleteModal(expenseId, category_id, expenseValue, expenseName) {
   // const expensesName = expenseName
   var expenseId = expenseId
 
-  // console.log("cate",categoryId, "ex", expenseId, user_id )
+  console.log("catedddd",categoryId, "exddddd", expenseId, user_id )
   // Get the modal
   var modal = document.getElementById("popup-modal");
   modal.style.display = "block";
@@ -14,9 +14,9 @@ function openDeleteModal(expenseId, category_id, expenseValue, expenseName) {
 
   document.getElementById("update-expense-name").value = expenseName
   document.getElementById("update-expense-value").value = expenseValue
-  document.getElementById("modal_user_id").value = userId
-  document.getElementById("modal_expense_id").value = expenseId
-  document.getElementById("modal_category_id").value = categoryId
+  document.getElementById("modal_delete_user_id").value = userId
+  document.getElementById("modal_delete_expense_id").value = expenseId
+  document.getElementById("modal_delete_category_id").value = categoryId
 
   
   return expenseId;
@@ -30,31 +30,32 @@ function cancelDeleteModal() {
 
 }
 
-// async function editFormHandler(event, expenseId) {
-//   event.preventDefault();
-//   const title = document.getElementById("update-expense-name").value;
-//   const value = document.getElementById("update-expense-value").value;
-//   const userIdResponse = document.getElementById("modal_user_id").value;
-//   const categoryIdResponse = document.getElementById("modal_category_id").value;
-//   const expenseIdResponse = document.getElementById("modal_expense_id").value;
+async function deleteExpenseId(event) {
+  event.preventDefault();
+  const title = document.getElementById("update-expense-name").value;
+  const value = document.getElementById("update-expense-value").value;
+  const userIdResponse = document.getElementById("modal_delete_user_id").value;
+  const categoryIdResponse = document.getElementById("modal_delete_category_id").value;
+  const expenseIdResponse = document.getElementById("modal_delete_expense_id").value;
+  console.log("this is a new expense ",expenseIdResponse);
+  
+  const response = await fetch(`/api/expenses/${expenseIdResponse}`, {
+    method: 'DELETE',
+    // body: JSON.stringify({
+    //   name: title,
+    //   value
+    // }),
+    // headers: {
+    //   'Content-Type': 'application/json'
+    // }
+  });
 
-//   const response = await fetch(`/api/expenses/${expenseIdResponse}`, {
-//     method: 'PUT',
-//     body: JSON.stringify({
-//       name: title,
-//       value
-//     }),
-//     headers: {
-//       'Content-Type': 'application/json'
-//     }
-//   });
-
-//   if (response.ok) {
-//     document.location.reload('/reports/');
-//   } else {
-//     alert(response.statusText);
-//   }
-// }
+  if (response.ok) {
+    document.location.reload('/reports/');
+  } else {
+    alert(response.statusText);
+  }
+}
 
 document.querySelector('#delete-btn').addEventListener('click', openDeleteModal);
-// document.querySelector('.update-expense-form').addEventListener('submit', editFormHandler);
+document.querySelector('#delete-expenseId').addEventListener('click', deleteExpenseId);

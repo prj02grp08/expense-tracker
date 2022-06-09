@@ -66,9 +66,9 @@
                 placeholder="Value 1400.00" required="">
         </div>
         <div>
-            <input type="hidden" name="text" id="modal_user_id" value="{{ user_id }}">
-            <input type="hidden" name="text" id="modal_expense_id" value="">
-            <input type="hidden" name="text" id="modal_category_id" value="">
+            <input type="hidden" name="text" id="modal_delete_user_id" value="{{ user_id }}">
+            <input type="hidden" name="text" id="modal_delete_expense_id" value="">
+            <input type="hidden" name="text" id="modal_delete_category_id" value="">
             {{!-- <h5 id="user_id" class="block mb-2 text-sm font-medium text-gray-900 ">{{ user_id }}</h5> --}}
         </div>
         <button type="submit"
@@ -82,6 +82,7 @@
 <div id="popup-modal" tabindex="-1"
     class="modal w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-2 lg:p-4">
     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <input type="hidden" name="text" id="modal_expense_id" value="">
         <div class="p-6 text-center">
             <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor"
                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +91,7 @@
             </svg>
             <h3 class="mb-5 text-lg font-normal text-white">Are you sure you want to delete
                 this expense?</h3>
-            <button type="button" id="delete-expenseId"
+            <button type="submit" id="delete-expenseId"
                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
                 Yes, I'm sure
             </button>

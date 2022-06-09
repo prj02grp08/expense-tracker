@@ -30,7 +30,7 @@ function cancelModal() {
 
 }
 
-async function editFormHandler(event, expenseId) {
+async function editFormHandler(event) {
   event.preventDefault();
   const title = document.getElementById("update-expense-name").value;
   const value = document.getElementById("update-expense-value").value;
