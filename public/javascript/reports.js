@@ -31,7 +31,7 @@ async function selectCategoryById(event) {
                                     </path>
                                 </svg>
                             </button>
-                            <button type="button" id="delete-btn ">
+                            <button type="button" id="delete-btn" onclick="openDeleteModal(${data[i].id}, ${data[i].category_id},${data[i].value},\'${data[i].name}\' )">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                     xmlns="http://www.w3.org/2000/svg">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
