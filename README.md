@@ -8,6 +8,7 @@
 * [Project Website](#project-website)
 * [Built With](#Built-With)
 * [Live Demo](#live-demo)
+* [Screenshots](#screenshots)
 * [Setup](#setup)
 * [Usage](#usage)
 * [Author](#author)
@@ -32,8 +33,19 @@ The following languages / technologies were used to build this project.
 
 
 ## Live Demo
- <img src="../assets/images/mydemo.gif" width="550" height="500"> 
+ <img src="./public//assets/images/mydemo.gif" width="960" height="700"> 
 
+
+## Screenshots
+
+* Homepage
+- ![Alt text](./public/assets/images/homepage.jpeg)
+
+* Dashboard
+- ![Alt text](./public/assets/images/dashboard.png)
+
+* Reports
+- ![Alt text](./public/assets/images/reports.png)
 
 ## Setup
 Please follow the step by step below to implement this project. 
@@ -47,7 +59,7 @@ Please follow the step by step below to implement this project.
 ## Usage
 Please follow the step by step below to use this application. 
 
-From the root of your project, run node server.js, navigate locally to http://localhost:3001 or the live URL at https://fet101-app.heroku.com  then a sign-in page will be presented, in case you don’t a have na user, use the hyperlink “create an account”. Once logged, a Dashboard will be presented with two main forms, one for adding custom categories and another to create a new expense. In order to view your expenses, click on Reports on the top right of the page, filter by category and click in View transactions, all the related the transactions will be presented on the right side. To see a chart containing all your expenses, click on Generate Expense Graph button, and a donut graph will be created.  
+From the root of your project, run node server.js, navigate locally to http://localhost:3001 or the live URL at https://fet101-app.herokuapp.com  then a sign-in page will be presented, in case you don’t a have na user, use the hyperlink “create an account”. Once logged, a Dashboard will be presented with two main forms, one for adding custom categories and another to create a new expense. In order to view your expenses, click on Reports on the top right of the page, filter by category and click in View transactions, all the related the transactions will be presented on the right side. To see a chart containing all your expenses, click on Generate Expense Graph button, and a donut graph will be created.  
 
 
 ## Author
