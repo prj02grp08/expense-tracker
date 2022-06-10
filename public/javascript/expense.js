@@ -7,7 +7,6 @@ async function addExpenses() {
   const category_id = document.querySelector("#select-category").value;
 
   console.log("this", expenseName, expenseValue, user_id, category_id);
-  // const expenseName = document.querySelector('#new-expense').value.trim();
 
   const response = await fetch("/api/expenses", {
     method: "POST",

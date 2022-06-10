@@ -36,7 +36,6 @@ router.get("/:id", (req, res) => {
 router.post("/", (req, res) => {
   Category.create({
     name: req.body.name,
-    // user_id: req.body.user_id,
   })
     .then((dbCategoryData) => res.json(dbCategoryData))
     .catch((err) => {

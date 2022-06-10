@@ -30,8 +30,6 @@ async function editFormHandler(event) {
   event.preventDefault();
   const title = document.getElementById("update-expense-name").value;
   const value = document.getElementById("update-expense-value").value;
-  // const userIdResponse = document.getElementById("modal_user_id").value;
-  // const categoryIdResponse = document.getElementById("modal_category_id").value;
   const expenseIdResponse = document.getElementById(
     "modal_delete_expense_id"
   ).value;

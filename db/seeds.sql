@@ -1,11 +1,4 @@
-INSERT INTO user (first_name, last_name, email, password)
-VALUES
-    ("Fernando", 'Almeida', "fernando@fernando.com", "12312132322"),
-    ("Fernando", 'Almeida', "fernando1@fernando.com", "12312132322"),
-    ("Fernando", 'Almeida', "fernando2@fernando.com", "12312132322"),
-    ("Fernando", 'Almeida', "fernando3@fernando.com", "12312132322"),
-    ("Fernando", 'Almeida', "fernando4@fernando.com", "12312132322")
-
+-- check readme on how to seed data using this files
 
 INSERT INTO category (name, created_at, updated_at)
 VALUES 
