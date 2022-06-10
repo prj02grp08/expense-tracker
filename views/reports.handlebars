@@ -1,0 +1,133 @@
+<div class="flex justify-around p-10">
+  {{!-- expenses by category --}}
+    <div
+        class="w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-6 lg:p-8">
+        <form class="expense-category-form space-y-6" />
+        <h5 class="text-xl font-medium text-gray-900">Expenses by Category</h5>
+        <label for="category" class="block mb-2 text-sm font-medium text-gray-900 ">Select a category</label>
+        <select class=" w-full h-auto p-2.5" name="category" multiple="multiple">
+            {{#each categories as |category|}}
+            <option
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400 selected-option"
+                value="{{category.id}}">{{category.name}}</option>
+            {{/each}}
+        </select>
+        <button type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">View
+            Transactions</button>
+        </form>
+    </div>
+    {{!-- transaction history section --}}
+    <div
+        class="w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-6 lg:p-8">
+        <form class="expense-form space-y-6" action="#">
+            <h5 class="text-xl font-medium text-gray-900">Transaction History</h5>
+            <div>
+                <input type="hidden" name="text" id="user_id" value="{{ user_id }}">
+            </div>
+            <div class="select-new-transaction w-full h-auto p-2.5 display-block">
+                <p
+                    class="expense-title bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400">
+                    <span class="expense-value"></span>
+                </p>
+                {{!-- edit button for expenses --}}
+                <button type="button" id="edit-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                        </path>
+                    </svg>
+                </button>
+                {{!-- delete button for expenses --}}
+                <button type="button" id="delete-btn">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16">
+                        </path>
+                    </svg>
+                </button>
+
+            </div>
+        </form>
+    </div>
+</div>
+{{!-- update expenses modal --}}
+<div id="update-expense"
+    class="modal w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-6 lg:p-8">
+    <form class="update-expense-form space-y-6" action="#">
+        <h5 class="text-xl font-medium text-gray-900">Update Expense</h5>
+        <div>
+            <label for="expense" class="block mb-2 text-sm font-medium text-gray-900 ">Enter a new name</label>
+            <input type="text" name="text" id="update-expense-name"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400"
+                placeholder="Expense name" required="">
+        </div>
+        <div>
+            <label for="expense" class="block mb-2 text-sm font-medium text-gray-900 ">Enter a new value</label>
+            <input type="number" step="0.01" name="price" id="update-expense-value"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-50 dark:border-gray-500 dark:placeholder-gray-400"
+                placeholder="Value 1400.00" required="">
+        </div>
+        <div>
+            <input type="hidden" name="text" id="modal_delete_user_id" value="{{ user_id }}">
+            <input type="hidden" name="text" id="modal_delete_expense_id" value="">
+            <input type="hidden" name="text" id="modal_delete_category_id" value="">
+            
+        </div>
+        
+        <button type="submit"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update
+            expense</button>
+        <button type="button" onclick="cancelModal()"
+            class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cancel
+        </button>
+    </form>
+</div>
+<div id="popup-modal" tabindex="-1"
+    class="modal w-full max-w-2xl h-full md:h-auto p-6 bg-gray-200 rounded-lg border border-gray-400 shadow-md sm:p-2 lg:p-4">
+    <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+        <input type="hidden" name="text" id="modal_expense_id" value="">
+        <div class="p-6 text-center">
+            <svg class="mx-auto mb-4 w-14 h-14 text-gray-400 dark:text-gray-200" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="mb-5 text-lg font-normal text-white">Are you sure you want to delete
+                this expense?</h3>
+            <button type="submit" id="delete-expenseId"
+                class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center mr-2">
+                Yes, I'm sure
+            </button>
+            <button type="button" onclick="cancelDeleteModal()"
+                class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-200 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-500 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-600">No,
+                cancel</button>
+        </div>
+    </div>
+
+</div>
+<div>
+  {{!-- generate expense graph --}}
+    <button type="button" onclick="generateGraph()"
+        class="generate-graph md:p-6 p-4  w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Generate Expense Graph</button>
+
+    {{! graph }}
+    <div id="piechart_3d"> </div>
+</div>
+
+<div class="w-full max-w-xl mx-auto p-10">
+    <canvas id="myChart" class="w-full"></canvas>
+</div>
+
+{{!-- file connections --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="/javascript/category.js"></script>
+<script src="/javascript/expense.js"></script>
+
+<script src="/javascript/edit-expense.js"></script>
+<script src="/javascript/delete-expense.js"></script>
+<script src="/javascript/reports.js"></script>
+<script src="/javascript/generateGraph.js"></script>
