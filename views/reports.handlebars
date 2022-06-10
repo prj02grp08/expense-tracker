@@ -69,7 +69,7 @@
             <input type="hidden" name="text" id="modal_delete_user_id" value="{{ user_id }}">
             <input type="hidden" name="text" id="modal_delete_expense_id" value="">
             <input type="hidden" name="text" id="modal_delete_category_id" value="">
-            {{!-- <h5 id="user_id" class="block mb-2 text-sm font-medium text-gray-900 ">{{ user_id }}</h5> --}}
+            
         </div>
         <button type="submit"
             class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Update
@@ -102,7 +102,25 @@
     </div>
 
 </div>
+<div>
+    <button type="button" onclick="generateGraph()"
+        class="generate-graph md:p-6 p-4  w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Generate Expense Graph</button>
+
+    {{! graph }}
+    <div id="piechart_3d"> </div>
+</div>
+
+<div class="w-full max-w-xl mx-auto p-10">
+    <canvas id="myChart" class="w-full"></canvas>
+</div>
+
+{{!-- file connections --}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="/javascript/category.js"></script>
+<script src="/javascript/expense.js"></script>
 
 <script src="/javascript/edit-expense.js"></script>
 <script src="/javascript/delete-expense.js"></script>
 <script src="/javascript/reports.js"></script>
+<script src="/javascript/generateGraph.js"></script>
