@@ -1,35 +1,10 @@
-// async function getSomething(event) {
-//     event.preventDefault();
-
-//     const title = document.querySelector('#new-category').value.trim();
-//     console.log(title);
-
-//     const response = await fetch('/api/category', {
-//         method: 'POST',
-//         body: JSON.stringify({
-//             name: title
-//         }),
-//         headers: { 'Content-Type': 'application/json' }
-//     });
-
-//     if (response.ok) {
-//         document.location.replace('/dashboard');
-//     } else {
-//         alert(response.statusText);
-//     }
-
-// }
-
-// document.querySelector('.view-transaction').addEventListener('submit', getSomething);
-// document.querySelector('.generate-graph').addEventListener('submit', import google graph);
-
-// import { GoogleCharts } from "google-charts";
-
 const generateGraph = async () => {
   const res = await fetch("http://localhost:3001/api/expenses");
   const data = await res.json();
   const names = data.map((item) => item.name);
   const values = data.map((item) => item.value);
+  console.log(names);
+  console.log(values);
 
   const ctx = document.getElementById("myChart").getContext("2d");
   const myChart = new Chart(ctx, {
