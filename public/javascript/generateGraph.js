@@ -1,5 +1,5 @@
 async function generateGraph() {
-  const res = await fetch("http://localhost:3001/api/expenses");
+  const res = await fetch("/api/expenses");
   const data = await res.json();
   const names = data.map((item) => item.name);
   const values = data.map((item) => item.value);
