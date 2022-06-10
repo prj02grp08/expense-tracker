@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FET</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    {{!--
+    <link rel="stylesheet" href="./assets/css/style.css"> --}}
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Irish+Grover" />
+    <style>
+        span {
+            float: right;
+        }
+
+        /* The Modal (background) */
+        .modal {
+            width: 100px;
+            height: 100px;
+            margin:0 auto;
+            display:none;
+            position: absolute;
+            left: 0;
+            right:0;
+            top: 50%; 
+            border:1px solid;
+            -webkit-transform:translateY(-50%);
+            -moz-transform:translateY(-50%);
+            -ms-transform:translateY(-50%);
+            -o-transform:translateY(-50%);
+            transform:translateY(-50%);
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="wrapper" id="">
+        {{> header }}
+        {{{ body }}}
+        {{> footer }}
+    </div>
+    <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+    {{#if loggedIn}}
+    <script src="/javascript/logout.js"></script>
+    {{/if}}
+</body>
+
+</html>

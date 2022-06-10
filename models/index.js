@@ -9,4 +9,19 @@ User.hasMany(Expense, {
 Expense.belongsTo(User)
 
 
+User.hasMany(Category, {
+    foreignKey: "category_id",
+    allowNull: false
+});
+Category.belongsTo(User)
+
+// User.belongsTo(Expense)
+// User.belongsTo(Expense)
+
+// // // User.belongsTo(Category)
+// User.belongsTo(Category)
+
+
+
+
 module.exports = { Category, User, Expense };
