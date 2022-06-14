@@ -23,8 +23,7 @@ Simple and clean application that allows the user to manage their expenses, whil
 ## Project Website
 Follow the link below for further details about the project 
 
-https://github.com/flalmeida3105/readme-generator 
-
+https://github.com/prj02grp08/expense-tracker
 
 ## Built With
 The following languages / technologies were used to build this project. 
